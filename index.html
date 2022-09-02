@@ -1,197 +1,438 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <title>Balvikas</title>
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-        
-        <!-- Latest Sortable -->
-        <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
-    </head>
-    <body>
-        <h1>Drag the images to match</h1>
-        <div class="list">
-            <div id="sortLeft" class="list-group">
-                <div class="list-group-item" id="ganesh"><img src="ganesha.png" height="170" width="160"></div>
-                <div class="list-group-item" id="murugan"><img src="murugan.png" height="170" width="160"></div>
-                <div class="list-group-item" id="shiva"><img src="shiva.png" height="170" width="160"></div>
-                <div class="list-group-item" id="vishnu"><img src="vishnu.png" height="170" width="160"></div>
-                <div class="list-group-item" id="durga"><img src="durga.png" height="170" width="160"></div>
-            </div>
+  <head>
+    <title>Balvikas</title>
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+    />
 
-            <div id="sortTrue" class="list-group">
-                <div class="list-group-item" id="ganesh"><img src="ganesh_1.png" height="170" width="160"></div>
-                <div class="list-group-item" id="murugan"><img src="murugan_1.png" height="170" width="160"></div>
-                <div class="list-group-item" id="shiva"><img src="shiva_1.png" height="170" width="160"></div>
-                <div class="list-group-item" id="vishnu"><img src="vishnu_1.png" height="170" width="160"></div>
-                <div class="list-group-item" id="durga"><img src="durga_1.png" height="170" width="160"></div>
-            </div>
+    <!-- Latest Sortable -->
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+  </head>
+  <body>
+    <h1>Drag the images to match</h1>
+    <div class="list">
+      <div id="sortLeft" class="list-group">
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="ganesh"
+        >
+          <img src="ganesha.png" height="170" width="160" />
         </div>
-        <br>
-        <button class="button-17" role="button" onclick="validate()">Check</button>
-    </body>
-    <script>
-        //Randomize order on each reload
-        function randomize(id){
-            var numbers = document.querySelector(`${id}`);
-            var list = Array.from(numbers.children);
-            var newlist;
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="murugan"
+        >
+          <img src="murugan.png" height="170" width="160" />
+        </div>
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="shiva"
+        >
+          <img src="shiva.png" height="170" width="160" />
+        </div>
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="vishnu"
+        >
+          <img src="vishnu.png" height="170" width="160" />
+        </div>
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="durga"
+        >
+          <img src="durga.png" height="170" width="160" />
+        </div>
+      </div>
 
-            list.sort(function(a, b) {
-            return -1 + Math.random() * 3; // -1, 0, or 1
-            });
+      <div id="sortTrue" class="list-group">
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="ganesh"
+        >
+          <img src="ganesh_1.png" height="170" width="160" />
+        </div>
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="murugan"
+        >
+          <img src="murugan_1.png" height="170" width="160" />
+        </div>
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="shiva"
+        >
+          <img src="shiva_1.png" height="170" width="160" />
+        </div>
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="vishnu"
+        >
+          <img src="vishnu_1.png" height="170" width="160" />
+        </div>
+        <div
+          ondragend="validate()"
+          class="list-group-item"
+          id="durga"
+        >
+          <img src="durga_1.png" height="170" width="160" />
+        </div>
+      </div>
+    </div>
+    <br />
+    <!-- Toast Errors -->
+    <div id="toast">
+      <div id="desc"></div>
+    </div>
+    <!--<button class="button-17" role="button" onclick="validate()">Check</button>-->
+  </body>
+  <script>
+    //Randomize order on each reload
 
-            while (numbers.children.length > 0) {
-                numbers.removeChild(numbers.children[0]);
-            }
+    function randomize(id) {
+      var numbers = document.querySelector(`${id}`);
+      var list = Array.from(numbers.children);
+      var newlist;
 
-            list.forEach(function(el) {
-                numbers.appendChild(el);
-            });
-        }
+      list.sort(function (a, b) {
+        return -1 + Math.random() * 3; // -1, 0, or 1
+      });
 
-        randomize("#sortLeft");
-        randomize("#sortTrue");
+      while (numbers.children.length > 0) {
+        numbers.removeChild(numbers.children[0]);
+      }
 
-        // sort on drag, Sortable is a library imported in the header
-        Sortable.create(sortTrue, {
-            animation: 150,
-            group: {
-                put: false,
-            },
-            sort: true,
-        }); 
-        
-        Sortable.create(sortLeft, {
-            animation: 150,
-            group: {
-                put: false,
-            },
-            sort: true
-        }); 
+      list.forEach(function (el) {
+        numbers.appendChild(el);
+      });
+    }
 
-        function normalize(){
-            console.log("You are moving!");
-            let left_side = document.querySelector("#sortLeft").querySelectorAll(".list-group-item");
-            let right_side = document.querySelector("#sortTrue").querySelectorAll(".list-group-item");
-            
-            for(let i = 0; i < left_side.length; i++){
-                left_side[i].style.backgroundColor = "white";
-                right_side[i].style.backgroundColor = "white";
-            }
-        }
-        
-        function validate(){
-            let left_side = document.querySelector("#sortLeft").querySelectorAll(".list-group-item");
-            let right_side = document.querySelector("#sortTrue").querySelectorAll(".list-group-item");
-            console.log(left_side);
-            console.log(right_side);
+    randomize("#sortLeft");
+    randomize("#sortTrue");
 
-            let errors = [];
+    var count = 0;
 
-            for(let i = 0; i < left_side.length; i++){
-                console.log(`${left_side[i].id} ${right_side[i].id}`);
-                if(left_side[i].id != right_side[i].id){
-                    errors.push(i);
+    // sort on drag, Sortable is a library imported in the header
+    Sortable.create(sortTrue, {
+      animation: 150,
+      group: {
+        put: false,
+      },
+      swap: true,
+      swapClass: "on_swap",
+    });
+
+    Sortable.create(sortLeft, {
+      animation: 150,
+      group: {
+        put: false,
+      },
+      swap: true,
+      swapClass: "on_swap",
+    });
+
+    function normalize() {
+      //console.log("You are moving!");
+      //Selecting Our Items
+      let left_side = document
+        .querySelector("#sortLeft")
+        .querySelectorAll(".list-group-item");
+      let right_side = document
+        .querySelector("#sortTrue")
+        .querySelectorAll(".list-group-item");
+      for (let i = 0; i < left_side.length; i++) {
+        left_side[i].style.backgroundColor = "white";
+        right_side[i].style.backgroundColor = "white";
+      }
+    }
+
+    function launch_toast(message) {
+      document.querySelector("#desc").innerHTML = message;
+      var x = document.getElementById("toast");
+      x.className = "show";
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, 5000);
+    }
+
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            console.log("You are using a mobile!");
+
+            document.querySelector('.list').insertAdjacentHTML("afterend", `<button class="button-17" role="button">Check</button>`);
+
+            document.querySelector('button').addEventListener('click', ()=>{
+                let flag = 1;
+                let left_side = document
+                .querySelector("#sortLeft")
+                .querySelectorAll(".list-group-item");
+                let right_side = document
+                .querySelector("#sortTrue")
+                .querySelectorAll(".list-group-item");
+                for (let i = 0; i < left_side.length; i++) {
+                    //console.log(left_side[i].id, right_side[i].id)
+                    if (left_side[i].id == right_side[i].id) {
+                    console.log("True!");
+                        left_side[i].style.backgroundColor = "#05f50d";
+                        right_side[i].style.backgroundColor = "#05f50d";
+                    } 
+                    else {
+                        launch_toast("Uh-Oh! Try Again Sairam!")
+                        flag = 0;
+                        left_side[i].style.backgroundColor = "red";
+                        right_side[i].style.backgroundColor = "red";
+                        setTimeout(() => {
+                            left_side[i].style.backgroundColor = "#ffffff";
+                            right_side[i].style.backgroundColor = "#ffffff";
+                        }, 4000);
+                    }
                 }
-            }
-            
-            for(let i = 0; i < left_side.length; i++){
-                if(errors.includes(i)){
-                    left_side[i].style.backgroundColor = "red";
-                    right_side[i].style.backgroundColor = "red";
+
+                if (flag == 1) {
+                    launch_toast("Yay! All are correct!");
+                    setTimeout(() => {
+                        location.reload();
+                    }, 10000);
                 }
-                else{
-                    left_side[i].style.backgroundColor = "green";
-                    right_side[i].style.backgroundColor = "green";
-                }
-            }
-
-            if(errors.length == 0){
-                alert("Yayy! All are correct!");
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@400&display=swap');
-        body {
-            font-family: 'Poppins', 'Open Sans', sans-serif;
-            text-align: center;
-            padding: 20px;
+            })
         }
 
-        .list{
-            display: flex;
-            justify-content: center;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    function validate() {
+      console.log("You have dragged an item!");
+      //Selecting Our Items
+      let left_side = document
+        .querySelector("#sortLeft")
+        .querySelectorAll(".list-group-item");
+      let right_side = document
+        .querySelector("#sortTrue")
+        .querySelectorAll(".list-group-item");
+      let flag = 1;
+      for (let i = 0; i < left_side.length; i++) {
+        //console.log(left_side[i].id, right_side[i].id)
+        if (left_side[i].id == right_side[i].id) {
+          console.log("True!");
+          left_side[i].style.backgroundColor = "#05f50d";
+          right_side[i].style.backgroundColor = "#05f50d";
+        } else {
+          flag = 0;
+          left_side[i].style.backgroundColor = "#ffffff";
+          right_side[i].style.backgroundColor = "#ffffff";
         }
+      }
 
-        .list-group-item {
-            width: fit-content;
-            margin-left: 15px;
-            margin-right: 15px;
-            cursor: move;
-            cursor: -webkit-grabbing;
-            border-radius: 10px;
-            margin: 5px;
-        }
+      if (flag == 1) {
+        launch_toast("Yay! All are correct!");
+        setTimeout(() => {
+          location.reload();
+        }, 10000);
+      }
+    }
+  </script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    body {
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
 
-        /* CSS */
-        .button-17 {
-        align-items: center;
-        appearance: none;
-        background-color: #fff;
-        border-radius: 24px;
-        border-style: none;
-        box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-        box-sizing: border-box;
-        color: #3c4043;
-        cursor: pointer;
-        display: inline-flex;
-        fill: currentcolor;
-        font-family: "Google Sans",Roboto,Arial,sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        height: 48px;
-        justify-content: center;
-        letter-spacing: .25px;
-        line-height: normal;
-        max-width: 100%;
-        overflow: visible;
-        padding: 2px 24px;
-        position: relative;
-        text-align: center;
-        text-transform: none;
-        transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        width: auto;
-        will-change: transform,opacity;
-        z-index: 0;
-        }
+    .list {
+      display: flex;
+      justify-content: center;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      /*background-color: #e9ddff;*/
+    }
 
-        .button-17:hover {
-            background: #F6F9FE;
-            color: #174ea6;
-        }
+    .list-group-item {
+      width: fit-content;
+      margin-left: 15px;
+      margin-right: 15px;
+      cursor: move;
+      cursor: -webkit-grabbing;
+      border-radius: 10px;
+      margin: 5px;
+      transition: background-color 0.5s linear;
+      /*background-color: #1e192b;*/
+    }
 
-        .button-17:active {
-            box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
-            outline: none;
-        }
+    button{
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        .button-17:focus {
-            outline: none;
-            border: 2px solid #4285f4;
-        }
-    </style>
+    /* CSS */
+    .button-17 {
+      align-items: center;
+      appearance: none;
+      background-color: #fff;
+      border-radius: 24px;
+      border-style: none;
+      box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+        rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+      box-sizing: border-box;
+      color: #3c4043;
+      cursor: pointer;
+      display: inline-flex;
+      fill: currentcolor;
+      font-family: "Google Sans", Roboto, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      height: 48px;
+      justify-content: center;
+      letter-spacing: 0.25px;
+      line-height: normal;
+      max-width: 100%;
+      overflow: visible;
+      padding: 2px 24px;
+      position: relative;
+      text-align: center;
+      text-transform: none;
+      transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: auto;
+      will-change: transform, opacity;
+      z-index: 0;
+    }
+
+    .button-17:hover {
+      background: #f6f9fe;
+      color: #174ea6;
+    }
+
+    .button-17:active {
+      box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+        0 8px 12px 6px rgb(60 64 67 / 15%);
+      outline: none;
+    }
+
+    .button-17:focus {
+      outline: none;
+      border: 2px solid #4285f4;
+    }
+    .on_swap {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      background: linear-gradient(57deg, #5ed1af, #19b3bd);
+      transition: background-color 0.5s linear;
+      border-radius: 24px;
+      transition: 0.2s all ease-in-out;
+    }
+    /*Toast Error Message*/
+    #toast {
+      visibility: hidden;
+      width: fit-content;
+      height: 50px;
+      margin: auto;
+      background-color: #c00404;
+      color: white;
+      text-align: center;
+      border-radius: 20px;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 30px;
+      font-size: 17px;
+      white-space: nowrap;
+    }
+    #toast #desc {
+      color: white;
+      padding: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    #toast.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, stay 3s 1s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, stay 3s 1s, fadeout 0.5s 4.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
+      }
+      to {
+        bottom: 30px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
+      }
+      to {
+        bottom: 30px;
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes stay {
+      from {
+        min-width: 50px;
+      }
+      to {
+        min-width: 50px;
+      }
+    }
+
+    @keyframes stay {
+      from {
+        min-width: 50px;
+      }
+      to {
+        min-width: 50px;
+      }
+    }
+
+    @-webkit-keyframes fadeout {
+      from {
+        bottom: 30px;
+        opacity: 1;
+      }
+      to {
+        bottom: 60px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeout {
+      from {
+        bottom: 30px;
+        opacity: 1;
+      }
+      to {
+        bottom: 60px;
+        opacity: 0;
+      }
+    }
+  </style>
 </html>
