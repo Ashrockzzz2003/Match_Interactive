@@ -21,77 +21,37 @@
     <h1>Drag the images to match</h1>
     <div class="list">
       <div id="sortLeft" class="list-group">
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="ganesh"
-        >
+        <div ondragend="validate()" class="list-group-item" id="ganesh">
           <img src="ganesha.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="murugan"
-        >
+        <div ondragend="validate()" class="list-group-item" id="murugan">
           <img src="murugan.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="shiva"
-        >
+        <div ondragend="validate()" class="list-group-item" id="shiva">
           <img src="shiva.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="vishnu"
-        >
+        <div ondragend="validate()" class="list-group-item" id="vishnu">
           <img src="vishnu.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="durga"
-        >
+        <div ondragend="validate()" class="list-group-item" id="durga">
           <img src="durga.png" height="170" width="160" />
         </div>
       </div>
 
       <div id="sortTrue" class="list-group">
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="ganesh"
-        >
+        <div ondragend="validate()" class="list-group-item" id="ganesh">
           <img src="ganesh_1.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="murugan"
-        >
+        <div ondragend="validate()" class="list-group-item" id="murugan">
           <img src="murugan_1.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="shiva"
-        >
+        <div ondragend="validate()" class="list-group-item" id="shiva">
           <img src="shiva_1.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="vishnu"
-        >
+        <div ondragend="validate()" class="list-group-item" id="vishnu">
           <img src="vishnu_1.png" height="170" width="160" />
         </div>
-        <div
-          ondragend="validate()"
-          class="list-group-item"
-          id="durga"
-        >
+        <div ondragend="validate()" class="list-group-item" id="durga">
           <img src="durga_1.png" height="170" width="160" />
         </div>
       </div>
@@ -173,49 +133,53 @@
     }
 
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile) {
-            console.log("You are using a mobile!");
+    if (isMobile) {
+      //console.log("You are using a mobile!");
 
-            document.querySelector('.list').insertAdjacentHTML("afterend", `<button class="button-17" role="button">Check</button>`);
+      document
+        .querySelector(".list")
+        .insertAdjacentHTML(
+          "afterend",
+          `<button class="button-17" role="button">Check</button>`
+        );
 
-            document.querySelector('button').addEventListener('click', ()=>{
-                let flag = 1;
-                let left_side = document
-                .querySelector("#sortLeft")
-                .querySelectorAll(".list-group-item");
-                let right_side = document
-                .querySelector("#sortTrue")
-                .querySelectorAll(".list-group-item");
-                for (let i = 0; i < left_side.length; i++) {
-                    //console.log(left_side[i].id, right_side[i].id)
-                    if (left_side[i].id == right_side[i].id) {
-                    console.log("True!");
-                        left_side[i].style.backgroundColor = "#05f50d";
-                        right_side[i].style.backgroundColor = "#05f50d";
-                    } 
-                    else {
-                        launch_toast("Uh-Oh! Try Again Sairam!")
-                        flag = 0;
-                        left_side[i].style.backgroundColor = "red";
-                        right_side[i].style.backgroundColor = "red";
-                        setTimeout(() => {
-                            left_side[i].style.backgroundColor = "#ffffff";
-                            right_side[i].style.backgroundColor = "#ffffff";
-                        }, 4000);
-                    }
-                }
-
-                if (flag == 1) {
-                    launch_toast("Yay! All are correct!");
-                    setTimeout(() => {
-                        location.reload();
-                    }, 10000);
-                }
-            })
+      document.querySelector("button").addEventListener("click", () => {
+        let flag = 1;
+        let left_side = document
+          .querySelector("#sortLeft")
+          .querySelectorAll(".list-group-item");
+        let right_side = document
+          .querySelector("#sortTrue")
+          .querySelectorAll(".list-group-item");
+        for (let i = 0; i < left_side.length; i++) {
+          //console.log(left_side[i].id, right_side[i].id)
+          if (left_side[i].id == right_side[i].id) {
+            //console.log("True!");
+            left_side[i].style.backgroundColor = "#05f50d";
+            right_side[i].style.backgroundColor = "#05f50d";
+          } else {
+            launch_toast("Uh-Oh! Try Again Sairam!");
+            flag = 0;
+            left_side[i].style.backgroundColor = "red";
+            right_side[i].style.backgroundColor = "red";
+            setTimeout(() => {
+              left_side[i].style.backgroundColor = "#ffffff";
+              right_side[i].style.backgroundColor = "#ffffff";
+            }, 4000);
+          }
         }
 
+        if (flag == 1) {
+          launch_toast("Yay! All are correct!");
+          setTimeout(() => {
+            location.reload();
+          }, 10000);
+        }
+      });
+    }
+
     function validate() {
-      console.log("You have dragged an item!");
+      //console.log("You have dragged an item!");
       //Selecting Our Items
       let left_side = document
         .querySelector("#sortLeft")
@@ -227,7 +191,7 @@
       for (let i = 0; i < left_side.length; i++) {
         //console.log(left_side[i].id, right_side[i].id)
         if (left_side[i].id == right_side[i].id) {
-          console.log("True!");
+          //console.log("True!");
           left_side[i].style.backgroundColor = "#05f50d";
           right_side[i].style.backgroundColor = "#05f50d";
         } else {
@@ -277,10 +241,10 @@
       /*background-color: #1e192b;*/
     }
 
-    button{
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
+    button {
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* CSS */
