@@ -136,13 +136,22 @@
     @media only screen and (max-width: 950px) {
         .game-container {
             width: fit-content;
-            padding: 8px;
-            transform: scale(0.9);
+            padding: 4px;
+            transform: scale(0.95);
         }
 
         .match-item, .match-target {
-            transform: scale(0.9);
+            width: fit-content;
+            cursor: move;
+            cursor: -webkit-grabbing;
+            margin: 2px;
+            border: #E7E0EC solid 1px;
+            border-radius: 32px 16px;
+            padding: 4px;
+            transform: scale(0.95);
         }
+
+
     }
 </style>
 <!--Very Important. Without this script the game will not work. Please include this without fail!-->
