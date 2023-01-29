@@ -132,7 +132,31 @@
         -webkit-animation: fadein 0.5s, stay 3s 1s, fadeout 0.5s 2.5s;
         animation: fadein 0.5s, stay 3s 1s, fadeout 0.5s 4.5s;
     }
+
+    @media only screen and (max-width: 950px) {
+        .game-container {
+            width: fit-content;
+            padding: 8px;
+        }
+
+        .match-item, .match-target {
+            width: fit-content;
+            margin-left: 8px;
+            margin-right: 8px;
+            cursor: move;
+            cursor: -webkit-grabbing;
+            margin: 4px;
+            border: #E7E0EC solid 1px;
+            border-radius: 32px 16px;
+            padding: 4px;
+        }
+
+        img {
+            transform: scale(0.9);
+        }
+    }
 </style>
+<!--Very Important. Without this script the game will not work. Please include this without fail!-->
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js"></script>
 <script type="text/javascript">
     function randomize(id) {
