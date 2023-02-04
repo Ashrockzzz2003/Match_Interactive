@@ -1,12 +1,17 @@
 # Interactive Matching Game - Gods and Vahanas
 
-"Match the gods with their ride, test your divine knowledge with our interactive game."
+Match the gods with their ride, test your divine knowledge with our interactive game.
 
 ## Table of Contents
 
 1. Overview
-2. How to Play
-3. Code
+2. Getting Started
+3. Frameworks Used
+4. File Structure
+5. HTML5 Structure
+6. CSS Styling
+7. JavaScript Functionality
+8. Conclusion
 
 
 ## Overview
@@ -72,5 +77,8 @@ This function displays a message using a toast notification.
 
 Two Sortable instances are created using the `Sortable.create()` method: one for the left section and one for the right section. The options for each instance specify animation and ease of movement, define the group for each section so that items can only be reordered within their own section, and specify a swap class and callback function `onEnd` to be executed after an item is reordered.
 
+
+## Conclusion
+This interactive matching game provides a fun and interactive way for players to learn about the gods and their respective vahanas. The combination of HTML, CSS, and JavaScript make for a visually appealing and engaging experience.
 
 `Ashwin Narayanan S`
