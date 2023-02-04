@@ -22,5 +22,23 @@ This game presents the player with a set of gods on one side and vahanas on the 
 - If the player matches a god with an incorrect vahana, the game will indicate an incorrect match `red`.
 - The game ends when all gods have been matched with their respective vahanas.
 
-## Code
+## Frameworks Used
+
+The game is made with `HTML`, `CSS`, and `JavaScript`. 
+
+## File Structure
+
+.
+├── durga.png
+├── durga_1.png
+├── ganesha.png
+├── ganesha_1.png
+├── index.html
+├── murugan.png
+├── murugan_1.png
+├── README.md
+├── shiva.png
+├── shiva_1.png
+└── vishnu.png
+└── vishnu_1.png
 
