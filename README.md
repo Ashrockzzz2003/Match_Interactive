@@ -13,7 +13,7 @@
 
 This game presents the player with a set of gods on one side and vahanas on the other. The player must match each god with their correct vahana. The game ends when all gods have been matched with their respective vahanas.
 
-## How to Play
+## Getting Started
 
 - On the left side of the screen, the player will see a list of gods.
 - On the right side of the screen, the player will see a list of vahanas.
@@ -67,3 +67,6 @@ This function displays a message using a toast notification.
 
 ### Sortable.create() method
 Two Sortable instances are created using the `Sortable.create()` method: one for the left section and one for the right section. The options for each instance specify animation and ease of movement, define the group for each section so that items can only be reordered within their own section, and specify a swap class and callback function `onEnd` to be executed after an item is reordered.
+
+
+`Ashwin Narayanan S`
