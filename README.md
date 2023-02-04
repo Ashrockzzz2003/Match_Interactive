@@ -56,16 +56,20 @@ The following JavaScript code implements a matching game with two sections:
 - the left section and the right section. 
 - The `Sortable.js` library is used to allow the items in each section to be reordered.
 
-### randomize(id) function
+## `randomize(id) function`
+
 This function takes an `id` parameter which is a selector for either the left or right section. It randomly rearranges the items within that section.
 
-### validate() function
+## `validate() function`
+
 This function checks if the items in the left section are correctly matched with the items in the right section. If they are, it displays a "Congratulations" message. If they are not, the incorrect items are highlighted with a red border.
 
-### launch_toast(message) function
+## `launch_toast(message) function`
+
 This function displays a message using a toast notification.
 
-### Sortable.create() method
+## `Sortable.create() method`
+
 Two Sortable instances are created using the `Sortable.create()` method: one for the left section and one for the right section. The options for each instance specify animation and ease of movement, define the group for each section so that items can only be reordered within their own section, and specify a swap class and callback function `onEnd` to be executed after an item is reordered.
 
 
