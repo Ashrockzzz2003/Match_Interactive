@@ -29,16 +29,28 @@ The game is made with `HTML`, `CSS`, and `JavaScript`.
 ## File Structure
 
 .
+
 ├── durga.png
+
 ├── durga_1.png
+
 ├── ganesha.png
+
 ├── ganesha_1.png
+
 ├── index.html
+
 ├── murugan.png
+
 ├── murugan_1.png
+
 ├── README.md
+
 ├── shiva.png
+
 ├── shiva_1.png
+
 └── vishnu.png
+
 └── vishnu_1.png
 
